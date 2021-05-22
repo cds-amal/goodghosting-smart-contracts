@@ -1,0 +1,74 @@
+
+
+@startuml
+
+autonumber
+skinparam legendBackgroundColor #FEFECE
+
+<style>
+      header {
+        HorizontalAlignment left
+        FontColor purple
+        FontSize 14
+        Padding 10
+      }
+    </style>
+
+header Insights by Truffle
+
+title Txn Hash: 0xb51e6b99a174f3cdc5d67f304b587cd91289283cc1548e7d6841adac956a4056
+
+
+actor EOA as "EOA"
+participant GoodGhosting_01 as "GoodGhosting_01"
+participant Pausable_01 as "Pausable_01"
+participant SafeMath_01 as "SafeMath_01"
+
+"EOA" -> "GoodGhosting_01" ++: joinGame(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | index | 1 |\n\
+| array | merkleProof | [ 0x2882c9f01add5f1c877ca051d110e9e58fbedc3164a1ae605f2fb231e9d9fb70 ] |\n\
+) { 0.0 GWEI }
+"GoodGhosting_01" -> "Pausable_01" ++: paused()
+"Pausable_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| bool |  | false |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" ++: getCurrentSegment()
+"GoodGhosting_01" -> "SafeMath_01" ++: sub(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 1621665115 |\n\
+| uint | b | 1621664934 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 181 |\n\
+)
+"GoodGhosting_01" -> "SafeMath_01" ++: div(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 181 |\n\
+| uint | b | 180 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 1 |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 1 |\n\
+)
+"GoodGhosting_01" x-[#red]-> "EOA" --: <&warning> <color #red>**REVERT!**</color> (\n\
+<#FEFECE,#FEFECE>| string |  | 'Game has already started' |\n\
+)
+deactivate "GoodGhosting_01"
+
+legend
+Participant details
+<#FEFECE,#D0D000>|= Alias |= Contract name |= Address |
+<#FEFECE>| EOA | Externally Owned Account | 0xf17f52151EbEF6C7334FAD080c5704D77216b732 |
+<#FEFECE>| GoodGhosting_01 | GoodGhosting | 0x709567c3fEFc8f11009768304Ee11895CD426B4D |
+<#FEFECE>| Pausable_01 | Pausable | 0x709567c3fEFc8f11009768304Ee11895CD426B4D |
+<#FEFECE>| SafeMath_01 | SafeMath | 0x709567c3fEFc8f11009768304Ee11895CD426B4D |
+endlegend
+
+@enduml

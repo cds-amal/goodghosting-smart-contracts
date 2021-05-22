@@ -1,0 +1,45 @@
+
+
+@startuml
+
+autonumber
+skinparam legendBackgroundColor #FEFECE
+
+<style>
+      header {
+        HorizontalAlignment left
+        FontColor purple
+        FontSize 14
+        Padding 10
+      }
+    </style>
+
+header Insights by Truffle
+
+title Txn Hash: 0x9d9ac35525639647827eb9d6beab0c5f1bc773b6146242a7b4911a91ed769a4b
+
+
+actor EOA as "EOA"
+participant GoodGhosting_01 as "GoodGhosting_01"
+participant Pausable_01 as "Pausable_01"
+
+"EOA" -> "GoodGhosting_01" ++: makeDeposit()
+"GoodGhosting_01" -> "Pausable_01" ++: paused()
+"Pausable_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| bool |  | false |\n\
+)
+"GoodGhosting_01" x-[#red]-> "EOA" --: <&warning> <color #red>**REVERT!**</color> (\n\
+<#FEFECE,#FEFECE>| string |  | 'Sender is not a player' |\n\
+)
+deactivate "GoodGhosting_01"
+
+legend
+Participant details
+<#FEFECE,#D0D000>|= Alias |= Contract name |= Address |
+<#FEFECE>| EOA | Externally Owned Account | 0xf17f52151EbEF6C7334FAD080c5704D77216b732 |
+<#FEFECE>| GoodGhosting_01 | GoodGhosting | 0xe94fa3040d20a01a1b8f42De7c430A11c27e2524 |
+<#FEFECE>| Pausable_01 | Pausable | 0xe94fa3040d20a01a1b8f42De7c430A11c27e2524 |
+endlegend
+
+@enduml

@@ -1,0 +1,68 @@
+
+
+@startuml
+
+autonumber
+skinparam legendBackgroundColor #FEFECE
+
+<style>
+      header {
+        HorizontalAlignment left
+        FontColor purple
+        FontSize 14
+        Padding 10
+      }
+    </style>
+
+header Insights by Truffle
+
+title Txn Hash: 0x78f8b96596de1df00ffc96beac8817f6fac0545f844e7ed2934dd645c5aa03ec
+
+
+actor EOA as "EOA"
+participant GoodGhosting_01 as "GoodGhosting_01"
+participant SafeMath_01 as "SafeMath_01"
+
+"EOA" -> "GoodGhosting_01" ++: redeemFromExternalPool()
+"GoodGhosting_01" -> "GoodGhosting_01" ++: isGameCompleted()
+"GoodGhosting_01" -> "GoodGhosting_01" ++: getCurrentSegment()
+"GoodGhosting_01" -> "SafeMath_01" ++: sub(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 1621666388 |\n\
+| uint | b | 1621665126 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 1262 |\n\
+)
+"GoodGhosting_01" -> "SafeMath_01" ++: div(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 1262 |\n\
+| uint | b | 180 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 7 |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 7 |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| bool |  | true |\n\
+)
+"GoodGhosting_01" x-[#red]-> "EOA" --: <&warning> <color #red>**REVERT!**</color> (\n\
+<#FEFECE,#FEFECE>| string |  | 'Redeem operation already happened for the game' |\n\
+)
+deactivate "GoodGhosting_01"
+
+legend
+Participant details
+<#FEFECE,#D0D000>|= Alias |= Contract name |= Address |
+<#FEFECE>| EOA | Externally Owned Account | 0xf17f52151EbEF6C7334FAD080c5704D77216b732 |
+<#FEFECE>| GoodGhosting_01 | GoodGhosting | 0x73Be611ab81F7E5ab9b68EDA31fe60e57Fdccb9B |
+<#FEFECE>| SafeMath_01 | SafeMath | 0x73Be611ab81F7E5ab9b68EDA31fe60e57Fdccb9B |
+endlegend
+
+@enduml

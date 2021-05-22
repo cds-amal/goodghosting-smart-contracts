@@ -1,0 +1,136 @@
+
+
+@startuml
+
+autonumber
+skinparam legendBackgroundColor #FEFECE
+
+<style>
+      header {
+        HorizontalAlignment left
+        FontColor purple
+        FontSize 14
+        Padding 10
+      }
+    </style>
+
+header Insights by Truffle
+
+title Txn Hash: 0x0dc8d986d7ee43302303fa6e1731ad3a851d6c02707ccba0cb33e1c0a20098c5
+
+
+actor EOA as "EOA"
+participant GoodGhosting_01 as "GoodGhosting_01"
+participant Context_01 as "Context_01"
+participant Ownable_01 as "Ownable_01"
+participant SafeMath_01 as "SafeMath_01"
+participant MockERC20Mintable_01 as "MockERC20Mintable_01"
+participant Context_02 as "Context_02"
+participant undefined_01 as "undefined_01"
+participant ERC20_01 as "ERC20_01"
+participant SafeMath_02 as "SafeMath_02"
+
+"EOA" -> "GoodGhosting_01" ++: adminFeeWithdraw()
+"GoodGhosting_01" -> "Context_01" ++: _msgSender()
+"Context_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |\n\
+)
+"GoodGhosting_01" -> "Ownable_01" ++: owner()
+"Ownable_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" ++: isGameCompleted()
+"GoodGhosting_01" -> "GoodGhosting_01" ++: getCurrentSegment()
+"GoodGhosting_01" -> "SafeMath_01" ++: sub(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 1621682826 |\n\
+| uint | b | 1621681564 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 1262 |\n\
+)
+"GoodGhosting_01" -> "SafeMath_01" ++: div(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 1262 |\n\
+| uint | b | 180 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 7 |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 7 |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| bool |  | true |\n\
+)
+"GoodGhosting_01" -> "Ownable_01" ++: owner()
+"Ownable_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |\n\
+)
+"GoodGhosting_01" -> "Ownable_01" ++: owner()
+"Ownable_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |\n\
+)
+"GoodGhosting_01" -> "MockERC20Mintable_01" ++: transfer(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | recipient | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |\n\
+| uint | amount | 50000000000000000000 |\n\
+) { 0.0 GWEI }
+"MockERC20Mintable_01" -> "Context_02" ++: _msgSender()
+"Context_02" -> "MockERC20Mintable_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0x07e8a1E915Bc5B9972FfDCc8AdD508aECBE0341F |\n\
+)
+"MockERC20Mintable_01" -> "undefined_01" ++: unknown-internal-name()
+"undefined_01" -> "ERC20_01" ++: _beforeTokenTransfer(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | from | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |\n\
+| address | to | 0x000000000000000000000002B5e3aF16B1880000 |\n\
+| uint | amount | 1901 |\n\
+) { 0.0 GWEI }
+"ERC20_01" -> "SafeMath_02" ++: sub(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 1060000000000000000000 |\n\
+| uint | b | 50000000000000000000 |\n\
+| string | errorMessage | 'ERC20: transfer amount exceeds balance' |\n\
+) { 0.0 GWEI }
+"SafeMath_02" -> "ERC20_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 1010000000000000000000 |\n\
+)
+"ERC20_01" -> "SafeMath_02" ++: add(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 0 |\n\
+| uint | b | 50000000000000000000 |\n\
+) { 0.0 GWEI }
+"SafeMath_02" -> "ERC20_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 50000000000000000000 |\n\
+)
+"ERC20_01" -> "undefined_01" --: 
+"GoodGhosting_01" -> "EOA" --: 
+
+legend
+Participant details
+<#FEFECE,#D0D000>|= Alias |= Contract name |= Address |
+<#FEFECE>| EOA | Externally Owned Account | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |
+<#FEFECE>| GoodGhosting_01 | GoodGhosting | 0x07e8a1E915Bc5B9972FfDCc8AdD508aECBE0341F |
+<#FEFECE>| Context_01 | Context | 0x07e8a1E915Bc5B9972FfDCc8AdD508aECBE0341F |
+<#FEFECE>| Ownable_01 | Ownable | 0x07e8a1E915Bc5B9972FfDCc8AdD508aECBE0341F |
+<#FEFECE>| SafeMath_01 | SafeMath | 0x07e8a1E915Bc5B9972FfDCc8AdD508aECBE0341F |
+<#FEFECE>| MockERC20Mintable_01 | MockERC20Mintable | 0x391737864A8DcdC7B790877DD1B06cFb99067272 |
+<#FEFECE>| Context_02 | Context | 0x391737864A8DcdC7B790877DD1B06cFb99067272 |
+<#FEFECE>| undefined_01 | undefined | 0x391737864A8DcdC7B790877DD1B06cFb99067272 |
+<#FEFECE>| ERC20_01 | ERC20 | 0x391737864A8DcdC7B790877DD1B06cFb99067272 |
+<#FEFECE>| SafeMath_02 | SafeMath | 0x391737864A8DcdC7B790877DD1B06cFb99067272 |
+endlegend
+
+@enduml

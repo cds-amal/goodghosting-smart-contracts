@@ -1,0 +1,38 @@
+
+
+@startuml
+
+autonumber
+skinparam legendBackgroundColor #FEFECE
+
+<style>
+      header {
+        HorizontalAlignment left
+        FontColor purple
+        FontSize 14
+        Padding 10
+      }
+    </style>
+
+header Insights by Truffle
+
+title Txn Hash: 0x5fbb3d7cab08bd9c92237a760377ca6b093add427c75aec94ccb8260252c0a95
+
+
+actor EOA as "EOA"
+participant GoodGhosting_01 as "GoodGhosting_01"
+
+"EOA" -> "GoodGhosting_01" ++: withdraw()
+"GoodGhosting_01" x-[#red]-> "EOA" --: <&warning> <color #red>**REVERT!**</color> (\n\
+<#FEFECE,#FEFECE>| string |  | 'Player has already withdrawn' |\n\
+)
+deactivate "GoodGhosting_01"
+
+legend
+Participant details
+<#FEFECE,#D0D000>|= Alias |= Contract name |= Address |
+<#FEFECE>| EOA | Externally Owned Account | 0xf17f52151EbEF6C7334FAD080c5704D77216b732 |
+<#FEFECE>| GoodGhosting_01 | GoodGhosting | 0xE6B0a577D28879305B2564D13c7c40bb24656A70 |
+endlegend
+
+@enduml

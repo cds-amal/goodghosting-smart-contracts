@@ -1,0 +1,38 @@
+
+
+@startuml
+
+autonumber
+skinparam legendBackgroundColor #FEFECE
+
+<style>
+      header {
+        HorizontalAlignment left
+        FontColor purple
+        FontSize 14
+        Padding 10
+      }
+    </style>
+
+header Insights by Truffle
+
+title Txn Hash: 0x0c1dd34474332e29b603727070430508e02a172fd6890010d81779af0148f61e
+
+
+actor EOA as "EOA"
+participant LendingPoolAddressesProviderMock_01 as "LendingPoolAddressesProviderMock_01"
+
+"EOA" -> "LendingPoolAddressesProviderMock_01" ++: setUnderlyingAssetAddress(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | _addr | 0xaA79f17eD8A1326Eb5F13873586a60597c495dD7 |\n\
+) { 0.0 GWEI }
+"LendingPoolAddressesProviderMock_01" -> "EOA" --: 
+
+legend
+Participant details
+<#FEFECE,#D0D000>|= Alias |= Contract name |= Address |
+<#FEFECE>| EOA | Externally Owned Account | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |
+<#FEFECE>| LendingPoolAddressesProviderMock_01 | LendingPoolAddressesProviderMock | 0x219EBb52F4E92c4FA554E80316B95D4adefb3ED6 |
+endlegend
+
+@enduml

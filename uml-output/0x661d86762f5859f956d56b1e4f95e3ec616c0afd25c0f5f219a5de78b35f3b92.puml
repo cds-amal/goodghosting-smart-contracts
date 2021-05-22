@@ -1,0 +1,82 @@
+
+
+@startuml
+
+autonumber
+skinparam legendBackgroundColor #FEFECE
+
+<style>
+      header {
+        HorizontalAlignment left
+        FontColor purple
+        FontSize 14
+        Padding 10
+      }
+    </style>
+
+header Insights by Truffle
+
+title Txn Hash: 0x661d86762f5859f956d56b1e4f95e3ec616c0afd25c0f5f219a5de78b35f3b92
+
+
+actor EOA as "EOA"
+participant GoodGhosting_01 as "GoodGhosting_01"
+participant Context_01 as "Context_01"
+participant Ownable_01 as "Ownable_01"
+participant SafeMath_01 as "SafeMath_01"
+
+"EOA" -> "GoodGhosting_01" ++: adminFeeWithdraw()
+"GoodGhosting_01" -> "Context_01" ++: _msgSender()
+"Context_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |\n\
+)
+"GoodGhosting_01" -> "Ownable_01" ++: owner()
+"Ownable_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" ++: isGameCompleted()
+"GoodGhosting_01" -> "GoodGhosting_01" ++: getCurrentSegment()
+"GoodGhosting_01" -> "SafeMath_01" ++: sub(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 1621686621 |\n\
+| uint | b | 1621685359 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 1262 |\n\
+)
+"GoodGhosting_01" -> "SafeMath_01" ++: div(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 1262 |\n\
+| uint | b | 180 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 7 |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 7 |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| bool |  | true |\n\
+)
+"GoodGhosting_01" x-[#red]-> "EOA" --: <&warning> <color #red>**REVERT!**</color> (\n\
+<#FEFECE,#FEFECE>| string |  | 'No Fees Earned' |\n\
+)
+deactivate "GoodGhosting_01"
+
+legend
+Participant details
+<#FEFECE,#D0D000>|= Alias |= Contract name |= Address |
+<#FEFECE>| EOA | Externally Owned Account | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |
+<#FEFECE>| GoodGhosting_01 | GoodGhosting | 0x62D0f3297d6D5F7e6b6434A3fFd6B5c4820eE45E |
+<#FEFECE>| Context_01 | Context | 0x62D0f3297d6D5F7e6b6434A3fFd6B5c4820eE45E |
+<#FEFECE>| Ownable_01 | Ownable | 0x62D0f3297d6D5F7e6b6434A3fFd6B5c4820eE45E |
+<#FEFECE>| SafeMath_01 | SafeMath | 0x62D0f3297d6D5F7e6b6434A3fFd6B5c4820eE45E |
+endlegend
+
+@enduml

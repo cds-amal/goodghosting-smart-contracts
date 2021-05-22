@@ -1,0 +1,39 @@
+
+
+@startuml
+
+autonumber
+skinparam legendBackgroundColor #FEFECE
+
+<style>
+      header {
+        HorizontalAlignment left
+        FontColor purple
+        FontSize 14
+        Padding 10
+      }
+    </style>
+
+header Insights by Truffle
+
+title Txn Hash: 0x4b960a24b68141a4b497f0643a2b39ebea412cdb57f30e3ef53917baee902475
+
+
+actor EOA as "EOA"
+participant MockERC20Mintable_01 as "MockERC20Mintable_01"
+
+"EOA" -> "MockERC20Mintable_01" ++: constructor(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| string | name | 'MINT' |\n\
+| string | symbol | 'MINT' |\n\
+) { 0.0 GWEI }
+"MockERC20Mintable_01" -> "EOA" --: 
+
+legend
+Participant details
+<#FEFECE,#D0D000>|= Alias |= Contract name |= Address |
+<#FEFECE>| EOA | Externally Owned Account | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |
+<#FEFECE>| MockERC20Mintable_01 | MockERC20Mintable | 0x3ba7c2578B59e0e1CcfeE9A20D92F043C0e0b3e6 |
+endlegend
+
+@enduml

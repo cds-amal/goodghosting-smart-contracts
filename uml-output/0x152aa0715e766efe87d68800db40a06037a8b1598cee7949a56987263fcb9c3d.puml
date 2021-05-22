@@ -1,0 +1,68 @@
+
+
+@startuml
+
+autonumber
+skinparam legendBackgroundColor #FEFECE
+
+<style>
+      header {
+        HorizontalAlignment left
+        FontColor purple
+        FontSize 14
+        Padding 10
+      }
+    </style>
+
+header Insights by Truffle
+
+title Txn Hash: 0x152aa0715e766efe87d68800db40a06037a8b1598cee7949a56987263fcb9c3d
+
+
+actor EOA as "EOA"
+participant GoodGhosting_01 as "GoodGhosting_01"
+participant Context_01 as "Context_01"
+participant Ownable_01 as "Ownable_01"
+participant Pausable_01 as "Pausable_01"
+
+"EOA" -> "GoodGhosting_01" ++: unpause()
+"GoodGhosting_01" -> "Context_01" ++: _msgSender()
+"Context_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |\n\
+)
+"GoodGhosting_01" -> "Ownable_01" ++: owner()
+"Ownable_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |\n\
+)
+"GoodGhosting_01" -> "Pausable_01" ++: paused()
+"Pausable_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| bool |  | true |\n\
+)
+"GoodGhosting_01" -> "Pausable_01" ++: _unpause()
+"Pausable_01" -> "Pausable_01" ++: paused()
+"Pausable_01" -> "Pausable_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| bool |  | true |\n\
+)
+"Pausable_01" -> "Context_01" ++: _msgSender()
+"Context_01" -> "Pausable_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |\n\
+)
+"Pausable_01" -> "GoodGhosting_01" --: 
+"GoodGhosting_01" -> "EOA" --: 
+
+legend
+Participant details
+<#FEFECE,#D0D000>|= Alias |= Contract name |= Address |
+<#FEFECE>| EOA | Externally Owned Account | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |
+<#FEFECE>| GoodGhosting_01 | GoodGhosting | 0x7d50aD3Dde49FD30976Fb899182AcAA1aD2dCA22 |
+<#FEFECE>| Context_01 | Context | 0x7d50aD3Dde49FD30976Fb899182AcAA1aD2dCA22 |
+<#FEFECE>| Ownable_01 | Ownable | 0x7d50aD3Dde49FD30976Fb899182AcAA1aD2dCA22 |
+<#FEFECE>| Pausable_01 | Pausable | 0x7d50aD3Dde49FD30976Fb899182AcAA1aD2dCA22 |
+endlegend
+
+@enduml

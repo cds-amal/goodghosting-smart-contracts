@@ -1,0 +1,52 @@
+
+
+@startuml
+
+autonumber
+skinparam legendBackgroundColor #FEFECE
+
+<style>
+      header {
+        HorizontalAlignment left
+        FontColor purple
+        FontSize 14
+        Padding 10
+      }
+    </style>
+
+header Insights by Truffle
+
+title Txn Hash: 0x5a1bbb06fd7e678d5a996acc0d607ae4bd31e3db271cc863029555b1833c8f73
+
+
+actor EOA as "EOA"
+participant GoodGhosting_01 as "GoodGhosting_01"
+participant Context_01 as "Context_01"
+participant Ownable_01 as "Ownable_01"
+
+"EOA" -> "GoodGhosting_01" ++: pause()
+"GoodGhosting_01" -> "Context_01" ++: _msgSender()
+"Context_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0xf17f52151EbEF6C7334FAD080c5704D77216b732 |\n\
+)
+"GoodGhosting_01" -> "Ownable_01" ++: owner()
+"Ownable_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |\n\
+)
+"GoodGhosting_01" x-[#red]-> "EOA" --: <&warning> <color #red>**REVERT!**</color> (\n\
+<#FEFECE,#FEFECE>| string |  | 'Ownable: caller is not the owner' |\n\
+)
+deactivate "GoodGhosting_01"
+
+legend
+Participant details
+<#FEFECE,#D0D000>|= Alias |= Contract name |= Address |
+<#FEFECE>| EOA | Externally Owned Account | 0xf17f52151EbEF6C7334FAD080c5704D77216b732 |
+<#FEFECE>| GoodGhosting_01 | GoodGhosting | 0x2D2aa0C057201079CCA8af3d981e41c8911C1b38 |
+<#FEFECE>| Context_01 | Context | 0x2D2aa0C057201079CCA8af3d981e41c8911C1b38 |
+<#FEFECE>| Ownable_01 | Ownable | 0x2D2aa0C057201079CCA8af3d981e41c8911C1b38 |
+endlegend
+
+@enduml

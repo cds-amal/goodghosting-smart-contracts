@@ -1,0 +1,78 @@
+
+
+@startuml
+
+autonumber
+skinparam legendBackgroundColor #FEFECE
+
+<style>
+      header {
+        HorizontalAlignment left
+        FontColor purple
+        FontSize 14
+        Padding 10
+      }
+    </style>
+
+header Insights by Truffle
+
+title Txn Hash: 0xf599c7f6c3111fbd196cb1ccac3357a8bf197f44ff69a9209e012626c95b7f53
+
+
+actor EOA as "EOA"
+participant LendingPoolAddressesProviderMock_01 as "LendingPoolAddressesProviderMock_01"
+participant Context_01 as "Context_01"
+participant undefined_01 as "undefined_01"
+participant ERC20_01 as "ERC20_01"
+participant SafeMath_01 as "SafeMath_01"
+
+"EOA" -> "LendingPoolAddressesProviderMock_01" ++: transfer(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | recipient | 0x07e8a1E915Bc5B9972FfDCc8AdD508aECBE0341F |\n\
+| uint | amount | 1000000000000000000000 |\n\
+) { 0.0 GWEI }
+"LendingPoolAddressesProviderMock_01" -> "Context_01" ++: _msgSender()
+"Context_01" -> "LendingPoolAddressesProviderMock_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |\n\
+)
+"LendingPoolAddressesProviderMock_01" -> "undefined_01" ++: unknown-internal-name()
+"undefined_01" -> "ERC20_01" ++: _beforeTokenTransfer(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | from | 0x07e8a1E915Bc5B9972FfDCc8AdD508aECBE0341F |\n\
+| address | to | 0x00000000000000000000003635c9aDC5dEA00000 |\n\
+| uint | amount | 3445 |\n\
+) { 0.0 GWEI }
+"ERC20_01" -> "SafeMath_01" ++: sub(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 1000000000000000000000 |\n\
+| uint | b | 1000000000000000000000 |\n\
+| string | errorMessage | 'ERC20: transfer amount exceeds balance' |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "ERC20_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 0 |\n\
+)
+"ERC20_01" -> "SafeMath_01" ++: add(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 60000000000000000000 |\n\
+| uint | b | 1000000000000000000000 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "ERC20_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 1060000000000000000000 |\n\
+)
+"ERC20_01" -> "undefined_01" --: 
+
+legend
+Participant details
+<#FEFECE,#D0D000>|= Alias |= Contract name |= Address |
+<#FEFECE>| EOA | Externally Owned Account | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |
+<#FEFECE>| LendingPoolAddressesProviderMock_01 | LendingPoolAddressesProviderMock | 0xC5F8516c6BdF1d503D767b03f8e42139C532C7da |
+<#FEFECE>| Context_01 | Context | 0xC5F8516c6BdF1d503D767b03f8e42139C532C7da |
+<#FEFECE>| undefined_01 | undefined | 0xC5F8516c6BdF1d503D767b03f8e42139C532C7da |
+<#FEFECE>| ERC20_01 | ERC20 | 0xC5F8516c6BdF1d503D767b03f8e42139C532C7da |
+<#FEFECE>| SafeMath_01 | SafeMath | 0xC5F8516c6BdF1d503D767b03f8e42139C532C7da |
+endlegend
+
+@enduml

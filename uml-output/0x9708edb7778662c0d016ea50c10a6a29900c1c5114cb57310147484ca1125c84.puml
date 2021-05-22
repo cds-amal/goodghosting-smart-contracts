@@ -1,0 +1,70 @@
+
+
+@startuml
+
+autonumber
+skinparam legendBackgroundColor #FEFECE
+
+<style>
+      header {
+        HorizontalAlignment left
+        FontColor purple
+        FontSize 14
+        Padding 10
+      }
+    </style>
+
+header Insights by Truffle
+
+title Txn Hash: 0x9708edb7778662c0d016ea50c10a6a29900c1c5114cb57310147484ca1125c84
+
+
+actor EOA as "EOA"
+participant MockERC20Mintable_01 as "MockERC20Mintable_01"
+participant undefined_01 as "undefined_01"
+participant ERC20_01 as "ERC20_01"
+participant SafeMath_01 as "SafeMath_01"
+
+"EOA" -> "MockERC20Mintable_01" ++: mint(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | account | 0xf17f52151EbEF6C7334FAD080c5704D77216b732 |\n\
+| uint | amount | 1000000000000000000000 |\n\
+) { 0.0 GWEI }
+"MockERC20Mintable_01" -> "undefined_01" ++: unknown-internal-name()
+"undefined_01" -> "ERC20_01" ++: _beforeTokenTransfer(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | from | 0xf17f52151EbEF6C7334FAD080c5704D77216b732 |\n\
+| address | to | 0x00000000000000000000003635c9aDC5dEA00000 |\n\
+| uint | amount | 2462 |\n\
+) { 0.0 GWEI }
+"ERC20_01" -> "SafeMath_01" ++: add(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 0 |\n\
+| uint | b | 1000000000000000000000 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "ERC20_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 1000000000000000000000 |\n\
+)
+"ERC20_01" -> "SafeMath_01" ++: add(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 0 |\n\
+| uint | b | 1000000000000000000000 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "ERC20_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 1000000000000000000000 |\n\
+)
+"ERC20_01" -> "undefined_01" --: 
+
+legend
+Participant details
+<#FEFECE,#D0D000>|= Alias |= Contract name |= Address |
+<#FEFECE>| EOA | Externally Owned Account | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |
+<#FEFECE>| MockERC20Mintable_01 | MockERC20Mintable | 0x12104CB63B58fD9Ed06034052A4C8D268f5D9125 |
+<#FEFECE>| undefined_01 | undefined | 0x12104CB63B58fD9Ed06034052A4C8D268f5D9125 |
+<#FEFECE>| ERC20_01 | ERC20 | 0x12104CB63B58fD9Ed06034052A4C8D268f5D9125 |
+<#FEFECE>| SafeMath_01 | SafeMath | 0x12104CB63B58fD9Ed06034052A4C8D268f5D9125 |
+endlegend
+
+@enduml

@@ -1,0 +1,281 @@
+
+
+@startuml
+
+autonumber
+skinparam legendBackgroundColor #FEFECE
+
+<style>
+      header {
+        HorizontalAlignment left
+        FontColor purple
+        FontSize 14
+        Padding 10
+      }
+    </style>
+
+header Insights by Truffle
+
+title Txn Hash: 0x1d4ceea5387c4cfd7458a50a19231acd9780cb5fc5937226ce530ca0a740c3e8
+
+
+actor EOA as "EOA"
+participant GoodGhosting_01 as "GoodGhosting_01"
+participant Pausable_01 as "Pausable_01"
+participant SafeMath_01 as "SafeMath_01"
+participant MockERC20Mintable_01 as "MockERC20Mintable_01"
+participant LendingPoolAddressesProviderMock_01 as "LendingPoolAddressesProviderMock_01"
+participant undefined_01 as "undefined_01"
+participant ERC20_01 as "ERC20_01"
+participant SafeMath_02 as "SafeMath_02"
+participant Context_01 as "Context_01"
+participant undefined_02 as "undefined_02"
+participant ERC20_02 as "ERC20_02"
+participant SafeMath_03 as "SafeMath_03"
+
+"EOA" -> "GoodGhosting_01" ++: earlyWithdraw()
+"GoodGhosting_01" -> "Pausable_01" ++: paused()
+"Pausable_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| bool |  | false |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" ++: isGameCompleted()
+"GoodGhosting_01" -> "GoodGhosting_01" ++: getCurrentSegment()
+"GoodGhosting_01" -> "SafeMath_01" ++: sub(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 1621664026 |\n\
+| uint | b | 1621663125 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 901 |\n\
+)
+"GoodGhosting_01" -> "SafeMath_01" ++: div(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 901 |\n\
+| uint | b | 180 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 5 |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 5 |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| bool |  | false |\n\
+)
+"GoodGhosting_01" -> "SafeMath_01" ++: mul(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 50000000000000000000 |\n\
+| uint | b | 9 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 450000000000000000000 |\n\
+)
+"GoodGhosting_01" -> "SafeMath_01" ++: div(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 450000000000000000000 |\n\
+| uint | b | 100 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 4500000000000000000 |\n\
+)
+"GoodGhosting_01" -> "SafeMath_01" ++: sub(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 50000000000000000000 |\n\
+| uint | b | 4500000000000000000 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 45500000000000000000 |\n\
+)
+"GoodGhosting_01" -> "SafeMath_01" ++: sub(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 50000000000000000000 |\n\
+| uint | b | 45500000000000000000 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 4500000000000000000 |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" ++: getCurrentSegment()
+"GoodGhosting_01" -> "SafeMath_01" ++: sub(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 1621664026 |\n\
+| uint | b | 1621663125 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 901 |\n\
+)
+"GoodGhosting_01" -> "SafeMath_01" ++: div(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 901 |\n\
+| uint | b | 180 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 5 |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 5 |\n\
+)
+"GoodGhosting_01" -> "MockERC20Mintable_01" ++: balanceOf(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | account | 0x3d7E44D9C1EDF03a368605bd83769851219e65ff |\n\
+) { 0.0 GWEI }
+"MockERC20Mintable_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 10000000000000000000 |\n\
+)
+"GoodGhosting_01" -> "SafeMath_01" ++: sub(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 45500000000000000000 |\n\
+| uint | b | 10000000000000000000 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 35500000000000000000 |\n\
+)
+"GoodGhosting_01" -> "LendingPoolAddressesProviderMock_01" ++: withdraw(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | asset | 0x8803cCB711bb7a5D165dC9b1AacC146e08f30e9a |\n\
+| uint | amount | 35500000000000000000 |\n\
+| address | to | 0x3d7E44D9C1EDF03a368605bd83769851219e65ff |\n\
+) { 0.0 GWEI }
+"LendingPoolAddressesProviderMock_01" -> "LendingPoolAddressesProviderMock_01" ++: balanceOf(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | account | 0x3d7E44D9C1EDF03a368605bd83769851219e65ff |\n\
+) { 0.0 GWEI }
+"LendingPoolAddressesProviderMock_01" -> "LendingPoolAddressesProviderMock_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 40000000000000000000 |\n\
+)
+"LendingPoolAddressesProviderMock_01" -> "undefined_01" ++: unknown-internal-name()
+"undefined_01" -> "ERC20_01" ++: _beforeTokenTransfer(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | from | 0x3d7E44D9C1EDF03a368605bd83769851219e65ff |\n\
+| address | to | 0x0000000000000000000000022b1c8C1227a00000 |\n\
+| uint | amount | 3984 |\n\
+) { 0.0 GWEI }
+"ERC20_01" -> "SafeMath_02" ++: sub(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 40000000000000000000 |\n\
+| uint | b | 40000000000000000000 |\n\
+| string | errorMessage | 'ERC20: burn amount exceeds balance' |\n\
+) { 0.0 GWEI }
+"SafeMath_02" -> "ERC20_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 0 |\n\
+)
+"ERC20_01" -> "SafeMath_02" ++: sub(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 40000000000000000000 |\n\
+| uint | b | 40000000000000000000 |\n\
+) { 0.0 GWEI }
+"SafeMath_02" -> "ERC20_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 0 |\n\
+)
+"ERC20_01" -> "MockERC20Mintable_01" ++: transfer(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | recipient | 0x3d7E44D9C1EDF03a368605bd83769851219e65ff |\n\
+| uint | amount | 40000000000000000000 |\n\
+) { 0.0 GWEI }
+"MockERC20Mintable_01" -> "Context_01" ++: _msgSender()
+"Context_01" -> "MockERC20Mintable_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0xD555066DdD647678c2178A4f0b1Ba1B885ad0101 |\n\
+)
+"MockERC20Mintable_01" -> "undefined_02" ++: unknown-internal-name()
+"undefined_02" -> "ERC20_02" ++: _beforeTokenTransfer(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | from | 0x3d7E44D9C1EDF03a368605bd83769851219e65ff |\n\
+| address | to | 0x0000000000000000000000022b1c8C1227a00000 |\n\
+| uint | amount | 1901 |\n\
+) { 0.0 GWEI }
+"ERC20_02" -> "SafeMath_03" ++: sub(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 40000000000000000000 |\n\
+| uint | b | 40000000000000000000 |\n\
+| string | errorMessage | 'ERC20: transfer amount exceeds balance' |\n\
+) { 0.0 GWEI }
+"SafeMath_03" -> "ERC20_02" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 0 |\n\
+)
+"ERC20_02" -> "SafeMath_03" ++: add(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 10000000000000000000 |\n\
+| uint | b | 40000000000000000000 |\n\
+) { 0.0 GWEI }
+"SafeMath_03" -> "ERC20_02" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 50000000000000000000 |\n\
+)
+"ERC20_02" -> "undefined_02" --: 
+"ERC20_01" -> "undefined_01" --: 
+"GoodGhosting_01" -> "MockERC20Mintable_01" ++: transfer(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | recipient | 0xf17f52151EbEF6C7334FAD080c5704D77216b732 |\n\
+| uint | amount | 45500000000000000000 |\n\
+) { 0.0 GWEI }
+"MockERC20Mintable_01" -> "Context_01" ++: _msgSender()
+"Context_01" -> "MockERC20Mintable_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0x3d7E44D9C1EDF03a368605bd83769851219e65ff |\n\
+)
+"MockERC20Mintable_01" -> "undefined_02" ++: unknown-internal-name()
+"undefined_02" -> "ERC20_02" ++: _beforeTokenTransfer(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | from | 0xf17f52151EbEF6C7334FAD080c5704D77216b732 |\n\
+| address | to | 0x000000000000000000000002777078EE40460000 |\n\
+| uint | amount | 1901 |\n\
+) { 0.0 GWEI }
+"ERC20_02" -> "SafeMath_03" ++: sub(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 50000000000000000000 |\n\
+| uint | b | 45500000000000000000 |\n\
+| string | errorMessage | 'ERC20: transfer amount exceeds balance' |\n\
+) { 0.0 GWEI }
+"SafeMath_03" -> "ERC20_02" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 4500000000000000000 |\n\
+)
+"ERC20_02" -> "SafeMath_03" ++: add(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 950000000000000000000 |\n\
+| uint | b | 45500000000000000000 |\n\
+) { 0.0 GWEI }
+"SafeMath_03" -> "ERC20_02" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 995500000000000000000 |\n\
+)
+"ERC20_02" -> "undefined_02" --: 
+"GoodGhosting_01" -> "EOA" --: 
+
+legend
+Participant details
+<#FEFECE,#D0D000>|= Alias |= Contract name |= Address |
+<#FEFECE>| EOA | Externally Owned Account | 0xf17f52151EbEF6C7334FAD080c5704D77216b732 |
+<#FEFECE>| GoodGhosting_01 | GoodGhosting | 0x3d7E44D9C1EDF03a368605bd83769851219e65ff |
+<#FEFECE>| Pausable_01 | Pausable | 0x3d7E44D9C1EDF03a368605bd83769851219e65ff |
+<#FEFECE>| SafeMath_01 | SafeMath | 0x3d7E44D9C1EDF03a368605bd83769851219e65ff |
+<#FEFECE>| MockERC20Mintable_01 | MockERC20Mintable | 0x8803cCB711bb7a5D165dC9b1AacC146e08f30e9a |
+<#FEFECE>| LendingPoolAddressesProviderMock_01 | LendingPoolAddressesProviderMock | 0xD555066DdD647678c2178A4f0b1Ba1B885ad0101 |
+<#FEFECE>| undefined_01 | undefined | 0xD555066DdD647678c2178A4f0b1Ba1B885ad0101 |
+<#FEFECE>| ERC20_01 | ERC20 | 0xD555066DdD647678c2178A4f0b1Ba1B885ad0101 |
+<#FEFECE>| SafeMath_02 | SafeMath | 0xD555066DdD647678c2178A4f0b1Ba1B885ad0101 |
+<#FEFECE>| Context_01 | Context | 0x8803cCB711bb7a5D165dC9b1AacC146e08f30e9a |
+<#FEFECE>| undefined_02 | undefined | 0x8803cCB711bb7a5D165dC9b1AacC146e08f30e9a |
+<#FEFECE>| ERC20_02 | ERC20 | 0x8803cCB711bb7a5D165dC9b1AacC146e08f30e9a |
+<#FEFECE>| SafeMath_03 | SafeMath | 0x8803cCB711bb7a5D165dC9b1AacC146e08f30e9a |
+endlegend
+
+@enduml

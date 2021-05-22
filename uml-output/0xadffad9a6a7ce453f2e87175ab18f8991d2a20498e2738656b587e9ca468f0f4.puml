@@ -1,0 +1,96 @@
+
+
+@startuml
+
+autonumber
+skinparam legendBackgroundColor #FEFECE
+
+<style>
+      header {
+        HorizontalAlignment left
+        FontColor purple
+        FontSize 14
+        Padding 10
+      }
+    </style>
+
+header Insights by Truffle
+
+title Txn Hash: 0xadffad9a6a7ce453f2e87175ab18f8991d2a20498e2738656b587e9ca468f0f4
+
+
+actor EOA as "EOA"
+participant GoodGhosting_01 as "GoodGhosting_01"
+participant Pausable_01 as "Pausable_01"
+participant SafeMath_01 as "SafeMath_01"
+participant GoodGhostingWhitelisted_01 as "GoodGhostingWhitelisted_01"
+participant MerkleProof_01 as "MerkleProof_01"
+
+"EOA" -> "GoodGhosting_01" ++: joinGame(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | index | 1 |\n\
+| array | merkleProof | [ 0x2882c9f01add5f1c877ca051d110e9e58fbedc3164a1ae605f2fb231e9d9fb70 ] |\n\
+) { 0.0 GWEI }
+"GoodGhosting_01" -> "Pausable_01" ++: paused()
+"Pausable_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| bool |  | false |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" ++: getCurrentSegment()
+"GoodGhosting_01" -> "SafeMath_01" ++: sub(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 1621665117 |\n\
+| uint | b | 1621665117 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 0 |\n\
+)
+"GoodGhosting_01" -> "SafeMath_01" ++: div(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 0 |\n\
+| uint | b | 180 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 0 |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 0 |\n\
+)
+"GoodGhosting_01" -> "GoodGhostingWhitelisted_01" ++: claim(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | index | 1 |\n\
+| address | account | 0xf17f52151EbEF6C7334FAD080c5704D77216b732 |\n\
+| bool | isValid | true |\n\
+| array | merkleProof | [ 0x2882c9f01add5f1c877ca051d110e9e58fbedc3164a1ae605f2fb231e9d9fb70 ] |\n\
+) { 0.0 GWEI }
+"GoodGhostingWhitelisted_01" -> "MerkleProof_01" ++: verify(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| array | proof | [ 0x2882c9f01add5f1c877ca051d110e9e58fbedc3164a1ae605f2fb231e9d9fb70 ] |\n\
+| bytes | root | 0xd53ed7372825e2b21778b03e7f08246a9e358bf89416c856ebb4f196fca5e662 |\n\
+| bytes | leaf | 0x93e8909af44acf5e2128ec9b84e3ba358ce1de36b5c9d6f9c61e14bb89a1d5f2 |\n\
+) { 0.0 GWEI }
+"MerkleProof_01" -> "GoodGhostingWhitelisted_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| bool |  | true |\n\
+)
+"GoodGhostingWhitelisted_01" -> "GoodGhosting_01" --: 
+"GoodGhosting_01" x-[#red]-> "EOA" --: <&warning> <color #red>**REVERT!**</color> (\n\
+<#FEFECE,#FEFECE>| string |  | 'Cannot join the game more than once' |\n\
+)
+deactivate "GoodGhosting_01"
+
+legend
+Participant details
+<#FEFECE,#D0D000>|= Alias |= Contract name |= Address |
+<#FEFECE>| EOA | Externally Owned Account | 0xf17f52151EbEF6C7334FAD080c5704D77216b732 |
+<#FEFECE>| GoodGhosting_01 | GoodGhosting | 0x990AC25F1a3D87F7A1e1c2EAebE7ab8A0c04E685 |
+<#FEFECE>| Pausable_01 | Pausable | 0x990AC25F1a3D87F7A1e1c2EAebE7ab8A0c04E685 |
+<#FEFECE>| SafeMath_01 | SafeMath | 0x990AC25F1a3D87F7A1e1c2EAebE7ab8A0c04E685 |
+<#FEFECE>| GoodGhostingWhitelisted_01 | GoodGhostingWhitelisted | 0x990AC25F1a3D87F7A1e1c2EAebE7ab8A0c04E685 |
+<#FEFECE>| MerkleProof_01 | MerkleProof | 0x990AC25F1a3D87F7A1e1c2EAebE7ab8A0c04E685 |
+endlegend
+
+@enduml

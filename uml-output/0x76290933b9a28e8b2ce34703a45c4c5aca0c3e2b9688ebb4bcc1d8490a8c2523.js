@@ -1,0 +1,37 @@
+const BigNumber = require("bignumber.js");
+
+const txlog = 
+{
+  type: 'transaction',
+  actions: [
+    {
+      type: 'callexternal',
+      address: '0x4a5cd58b24e3BF04360B06bFEaF45A39aA8035b6',
+      contextHash: '0xa5d0f0cd4fd043c8edbe931400377de1c6af9e83b4e560e63b545c6f03dfbfa0',
+      value: BigNumber("0x0"),
+      kind: 'function',
+      isDelegate: false,
+      functionName: 'setUnderlyingAssetAddress',
+      contractName: 'LendingPoolAddressesProviderMock',
+      arguments: [
+        {
+          name: '_addr',
+          value: {
+            type: { typeClass: 'address', kind: 'specific', payable: false },
+            kind: 'value',
+            value: {
+              asAddress: '0x8e4C131B37383E431B9cd0635D3cF9f3F628EDae',
+              rawAsHex: '0x0000000000000000000000008e4c131b37383e431b9cd0635d3cf9f3f628edae'
+            }
+          }
+        }
+      ],
+      actions: [],
+      returnValues: [],
+      returnKind: 'return'
+    }
+  ],
+  origin: '0x627306090abaB3A6e1400e9345bC60c78a8BEf57'
+}
+
+module.exports = txlog;

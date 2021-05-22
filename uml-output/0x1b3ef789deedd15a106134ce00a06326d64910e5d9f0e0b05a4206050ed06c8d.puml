@@ -1,0 +1,54 @@
+
+
+@startuml
+
+autonumber
+skinparam legendBackgroundColor #FEFECE
+
+<style>
+      header {
+        HorizontalAlignment left
+        FontColor purple
+        FontSize 14
+        Padding 10
+      }
+    </style>
+
+header Insights by Truffle
+
+title Txn Hash: 0x1b3ef789deedd15a106134ce00a06326d64910e5d9f0e0b05a4206050ed06c8d
+
+
+actor EOA as "EOA"
+participant GoodGhosting_01 as "GoodGhosting_01"
+participant Context_01 as "Context_01"
+
+"EOA" -> "GoodGhosting_01" ++: constructor(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| contract | _inboundCurrency | 0xA4392264a2d8c998901D10C154C91725b1BF0158 (MockERC20Mintable) |\n\
+| contract | _lendingPoolAddressProvider | 0x8ACEe021a27779d8E98B9650722676B850b25E11 (LendingPoolAddressesProviderMock) |\n\
+| uint | _segmentCount | 6 |\n\
+| uint | _segmentLength | 180 |\n\
+| uint | _segmentPayment | 10000000000000000000 |\n\
+| uint | _earlyWithdrawalFee | 0 |\n\
+| uint | _customFee | 5 |\n\
+| address | _dataProvider | 0x8ACEe021a27779d8E98B9650722676B850b25E11 |\n\
+| bytes | merkleRoot_ | 0xd53ed7372825e2b21778b03e7f08246a9e358bf89416c856ebb4f196fca5e662 |\n\
+) { 0.0 GWEI }
+"GoodGhosting_01" -> "Context_01" ++: _msgSender()
+"Context_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |\n\
+)
+"GoodGhosting_01" x-[#red]-> "EOA" --: <&warning> <color #red>**REVERT!**</color>
+deactivate "GoodGhosting_01"
+
+legend
+Participant details
+<#FEFECE,#D0D000>|= Alias |= Contract name |= Address |
+<#FEFECE>| EOA | Externally Owned Account | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |
+<#FEFECE>| GoodGhosting_01 | GoodGhosting | 0x4e71920b7330515faf5EA0c690f1aD06a85fB60c |
+<#FEFECE>| Context_01 | Context | 0x4e71920b7330515faf5EA0c690f1aD06a85fB60c |
+endlegend
+
+@enduml

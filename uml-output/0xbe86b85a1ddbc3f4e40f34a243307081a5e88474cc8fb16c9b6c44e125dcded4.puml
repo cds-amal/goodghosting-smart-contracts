@@ -1,0 +1,54 @@
+
+
+@startuml
+
+autonumber
+skinparam legendBackgroundColor #FEFECE
+
+<style>
+      header {
+        HorizontalAlignment left
+        FontColor purple
+        FontSize 14
+        Padding 10
+      }
+    </style>
+
+header Insights by Truffle
+
+title Txn Hash: 0xbe86b85a1ddbc3f4e40f34a243307081a5e88474cc8fb16c9b6c44e125dcded4
+
+
+actor EOA as "EOA"
+participant MockERC20Mintable_01 as "MockERC20Mintable_01"
+participant Context_01 as "Context_01"
+participant ERC20_01 as "ERC20_01"
+
+"EOA" -> "MockERC20Mintable_01" ++: approve(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | spender | 0x9583518388389c8B324629bF16751B2e3B416287 |\n\
+| uint | amount | 10000000000000000000 |\n\
+) { 0.0 GWEI }
+"MockERC20Mintable_01" -> "Context_01" ++: _msgSender()
+"Context_01" -> "MockERC20Mintable_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0xf17f52151EbEF6C7334FAD080c5704D77216b732 |\n\
+)
+"MockERC20Mintable_01" -> "ERC20_01" ++: _approve(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | owner | 0x0000000000000000000000008AC7230489e80000 |\n\
+| address | spender | 0x0000000000000000000000000000000000000000 |\n\
+| uint | amount | 954 |\n\
+) { 0.0 GWEI }
+"ERC20_01" -> "MockERC20Mintable_01" --: 
+
+legend
+Participant details
+<#FEFECE,#D0D000>|= Alias |= Contract name |= Address |
+<#FEFECE>| EOA | Externally Owned Account | 0xf17f52151EbEF6C7334FAD080c5704D77216b732 |
+<#FEFECE>| MockERC20Mintable_01 | MockERC20Mintable | 0xD38BBD737e01915f8C57CeAb24790610B88B2369 |
+<#FEFECE>| Context_01 | Context | 0xD38BBD737e01915f8C57CeAb24790610B88B2369 |
+<#FEFECE>| ERC20_01 | ERC20 | 0xD38BBD737e01915f8C57CeAb24790610B88B2369 |
+endlegend
+
+@enduml

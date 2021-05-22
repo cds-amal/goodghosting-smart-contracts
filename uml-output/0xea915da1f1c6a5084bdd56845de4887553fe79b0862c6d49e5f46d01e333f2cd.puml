@@ -1,0 +1,210 @@
+
+
+@startuml
+
+autonumber
+skinparam legendBackgroundColor #FEFECE
+
+<style>
+      header {
+        HorizontalAlignment left
+        FontColor purple
+        FontSize 14
+        Padding 10
+      }
+    </style>
+
+header Insights by Truffle
+
+title Txn Hash: 0xea915da1f1c6a5084bdd56845de4887553fe79b0862c6d49e5f46d01e333f2cd
+
+
+actor EOA as "EOA"
+participant GoodGhosting_01 as "GoodGhosting_01"
+participant Pausable_01 as "Pausable_01"
+participant SafeMath_01 as "SafeMath_01"
+participant GoodGhostingWhitelisted_01 as "GoodGhostingWhitelisted_01"
+participant MerkleProof_01 as "MerkleProof_01"
+participant MockERC20Mintable_01 as "MockERC20Mintable_01"
+participant undefined_01 as "undefined_01"
+participant ERC20_01 as "ERC20_01"
+participant SafeMath_02 as "SafeMath_02"
+participant Context_01 as "Context_01"
+
+"EOA" -> "GoodGhosting_01" ++: joinGame(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | index | 1 |\n\
+| array | merkleProof | [ 0x2882c9f01add5f1c877ca051d110e9e58fbedc3164a1ae605f2fb231e9d9fb70 ] |\n\
+) { 0.0 GWEI }
+"GoodGhosting_01" -> "Pausable_01" ++: paused()
+"Pausable_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| bool |  | false |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" ++: getCurrentSegment()
+"GoodGhosting_01" -> "SafeMath_01" ++: sub(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 1621665122 |\n\
+| uint | b | 1621665122 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 0 |\n\
+)
+"GoodGhosting_01" -> "SafeMath_01" ++: div(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 0 |\n\
+| uint | b | 180 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 0 |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 0 |\n\
+)
+"GoodGhosting_01" -> "GoodGhostingWhitelisted_01" ++: claim(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | index | 1 |\n\
+| address | account | 0xf17f52151EbEF6C7334FAD080c5704D77216b732 |\n\
+| bool | isValid | true |\n\
+| array | merkleProof | [ 0x2882c9f01add5f1c877ca051d110e9e58fbedc3164a1ae605f2fb231e9d9fb70 ] |\n\
+) { 0.0 GWEI }
+"GoodGhostingWhitelisted_01" -> "MerkleProof_01" ++: verify(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| array | proof | [ 0x2882c9f01add5f1c877ca051d110e9e58fbedc3164a1ae605f2fb231e9d9fb70 ] |\n\
+| bytes | root | 0xd53ed7372825e2b21778b03e7f08246a9e358bf89416c856ebb4f196fca5e662 |\n\
+| bytes | leaf | 0x93e8909af44acf5e2128ec9b84e3ba358ce1de36b5c9d6f9c61e14bb89a1d5f2 |\n\
+) { 0.0 GWEI }
+"MerkleProof_01" -> "GoodGhostingWhitelisted_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| bool |  | true |\n\
+)
+"GoodGhostingWhitelisted_01" -> "GoodGhosting_01" --: 
+"GoodGhosting_01" -> "GoodGhosting_01" ++: _transferDaiToContract()
+"GoodGhosting_01" -> "MockERC20Mintable_01" ++: allowance(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | owner | 0xf17f52151EbEF6C7334FAD080c5704D77216b732 |\n\
+| address | spender | 0x1622c3352f54f66E2b86583958D30DB50695ec4c |\n\
+) { 0.0 GWEI }
+"MockERC20Mintable_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 10000000000000000000 |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" ++: getCurrentSegment()
+"GoodGhosting_01" -> "SafeMath_01" ++: sub(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 1621665122 |\n\
+| uint | b | 1621665122 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 0 |\n\
+)
+"GoodGhosting_01" -> "SafeMath_01" ++: div(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 0 |\n\
+| uint | b | 180 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 0 |\n\
+)
+"GoodGhosting_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 0 |\n\
+)
+"GoodGhosting_01" -> "SafeMath_01" ++: add(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 0 |\n\
+| uint | b | 10000000000000000000 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "SafeMath_01" ++: add(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 0 |\n\
+| uint | b | 10000000000000000000 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "SafeMath_01" ++: add(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 0 |\n\
+| uint | b | 10000000000000000000 |\n\
+) { 0.0 GWEI }
+"SafeMath_01" -> "MockERC20Mintable_01" ++: transferFrom(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | sender | 0xf17f52151EbEF6C7334FAD080c5704D77216b732 |\n\
+| address | recipient | 0x1622c3352f54f66E2b86583958D30DB50695ec4c |\n\
+| uint | amount | 10000000000000000000 |\n\
+) { 0.0 GWEI }
+"MockERC20Mintable_01" -> "undefined_01" ++: unknown-internal-name()
+"undefined_01" -> "ERC20_01" ++: _beforeTokenTransfer(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | from | 0x1622c3352f54f66E2b86583958D30DB50695ec4c |\n\
+| address | to | 0x0000000000000000000000008AC7230489e80000 |\n\
+| uint | amount | 1901 |\n\
+) { 0.0 GWEI }
+"ERC20_01" -> "SafeMath_02" ++: sub(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 1000000000000000000000 |\n\
+| uint | b | 10000000000000000000 |\n\
+| string | errorMessage | 'ERC20: transfer amount exceeds balance' |\n\
+) { 0.0 GWEI }
+"SafeMath_02" -> "ERC20_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 990000000000000000000 |\n\
+)
+"ERC20_01" -> "SafeMath_02" ++: add(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 0 |\n\
+| uint | b | 10000000000000000000 |\n\
+) { 0.0 GWEI }
+"SafeMath_02" -> "ERC20_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 10000000000000000000 |\n\
+)
+"ERC20_01" -> "Context_01" ++: _msgSender()
+"Context_01" -> "ERC20_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0x1622c3352f54f66E2b86583958D30DB50695ec4c |\n\
+)
+"ERC20_01" -> "Context_01" ++: _msgSender()
+"Context_01" -> "ERC20_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0x1622c3352f54f66E2b86583958D30DB50695ec4c |\n\
+)
+"ERC20_01" -> "SafeMath_02" ++: sub(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint | a | 10000000000000000000 |\n\
+| uint | b | 10000000000000000000 |\n\
+| string | errorMessage | 'ERC20: transfer amount exceeds allowance' |\n\
+) { 0.0 GWEI }
+"SafeMath_02" -> "ERC20_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| uint |  | 0 |\n\
+)
+"ERC20_01" -> "ERC20_01" ++: _approve(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | owner | 0x0000000000000000000000008AC7230489e80000 |\n\
+| address | spender | 0x0000000000000000000000000000000000000000 |\n\
+| uint | amount | 1100 |\n\
+) { 0.0 GWEI }
+"ERC20_01" -> "ERC20_01" --: 
+"SafeMath_01" -> "SafeMath_01" --: 
+
+legend
+Participant details
+<#FEFECE,#D0D000>|= Alias |= Contract name |= Address |
+<#FEFECE>| EOA | Externally Owned Account | 0xf17f52151EbEF6C7334FAD080c5704D77216b732 |
+<#FEFECE>| GoodGhosting_01 | GoodGhosting | 0x1622c3352f54f66E2b86583958D30DB50695ec4c |
+<#FEFECE>| Pausable_01 | Pausable | 0x1622c3352f54f66E2b86583958D30DB50695ec4c |
+<#FEFECE>| SafeMath_01 | SafeMath | 0x1622c3352f54f66E2b86583958D30DB50695ec4c |
+<#FEFECE>| GoodGhostingWhitelisted_01 | GoodGhostingWhitelisted | 0x1622c3352f54f66E2b86583958D30DB50695ec4c |
+<#FEFECE>| MerkleProof_01 | MerkleProof | 0x1622c3352f54f66E2b86583958D30DB50695ec4c |
+<#FEFECE>| MockERC20Mintable_01 | MockERC20Mintable | 0xe547Baa852602c90e641d0e9d6B0d279AFC09f92 |
+<#FEFECE>| undefined_01 | undefined | 0xe547Baa852602c90e641d0e9d6B0d279AFC09f92 |
+<#FEFECE>| ERC20_01 | ERC20 | 0xe547Baa852602c90e641d0e9d6B0d279AFC09f92 |
+<#FEFECE>| SafeMath_02 | SafeMath | 0xe547Baa852602c90e641d0e9d6B0d279AFC09f92 |
+<#FEFECE>| Context_01 | Context | 0xe547Baa852602c90e641d0e9d6B0d279AFC09f92 |
+endlegend
+
+@enduml

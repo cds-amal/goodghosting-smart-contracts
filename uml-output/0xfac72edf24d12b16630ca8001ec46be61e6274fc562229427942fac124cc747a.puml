@@ -1,0 +1,101 @@
+
+
+@startuml
+
+autonumber
+skinparam legendBackgroundColor #FEFECE
+
+<style>
+      header {
+        HorizontalAlignment left
+        FontColor purple
+        FontSize 14
+        Padding 10
+      }
+    </style>
+
+header Insights by Truffle
+
+title Txn Hash: 0xfac72edf24d12b16630ca8001ec46be61e6274fc562229427942fac124cc747a
+
+
+actor EOA as "EOA"
+participant GoodGhosting_01 as "GoodGhosting_01"
+participant Context_01 as "Context_01"
+participant LendingPoolAddressesProviderMock_01 as "LendingPoolAddressesProviderMock_01"
+participant undefined_01 as "undefined_01"
+participant MockERC20Mintable_01 as "MockERC20Mintable_01"
+participant ERC20_01 as "ERC20_01"
+participant Context_02 as "Context_02"
+
+"EOA" -> "GoodGhosting_01" ++: constructor(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| contract | _inboundCurrency | 0x394BfB86641Bf8cA8A757a318499A580Cc1f26C6 (MockERC20Mintable) |\n\
+| contract | _lendingPoolAddressProvider | 0x8f1A69555d18587277937D06A6dF3C07459d1dA9 (LendingPoolAddressesProviderMock) |\n\
+| uint | _segmentCount | 6 |\n\
+| uint | _segmentLength | 180 |\n\
+| uint | _segmentPayment | 10000000000000000000 |\n\
+| uint | _earlyWithdrawalFee | 9 |\n\
+| uint | _customFee | 5 |\n\
+| address | _dataProvider | 0x8f1A69555d18587277937D06A6dF3C07459d1dA9 |\n\
+| bytes | merkleRoot_ | 0xd53ed7372825e2b21778b03e7f08246a9e358bf89416c856ebb4f196fca5e662 |\n\
+) { 0.0 GWEI }
+"GoodGhosting_01" -> "Context_01" ++: _msgSender()
+"Context_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |\n\
+)
+"GoodGhosting_01" -> "LendingPoolAddressesProviderMock_01" ++: getLendingPool()
+"LendingPoolAddressesProviderMock_01" -> "LendingPoolAddressesProviderMock_01" ++: getLendingPool()
+"LendingPoolAddressesProviderMock_01" -> "LendingPoolAddressesProviderMock_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0x8f1A69555d18587277937D06A6dF3C07459d1dA9 |\n\
+)
+"LendingPoolAddressesProviderMock_01" -> "GoodGhosting_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0x8f1A69555d18587277937D06A6dF3C07459d1dA9 |\n\
+)
+"GoodGhosting_01" -> "LendingPoolAddressesProviderMock_01" ++: getReserveTokensAddresses(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | asset | 0x394BfB86641Bf8cA8A757a318499A580Cc1f26C6 |\n\
+) { 0.0 GWEI }
+"LendingPoolAddressesProviderMock_01" -> "undefined_01" ++: unknown-internal-name()
+"undefined_01" -> "LendingPoolAddressesProviderMock_01" --: 
+"GoodGhosting_01" -> "MockERC20Mintable_01" ++: approve(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | spender | 0x8f1A69555d18587277937D06A6dF3C07459d1dA9 |\n\
+| uint | amount | 115792089237316195423570985008687907853269984665640564039457584007913129639935 |\n\
+) { 0.0 GWEI }
+"MockERC20Mintable_01" -> "ERC20_01" ++: approve(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | spender | 0x8f1A69555d18587277937D06A6dF3C07459d1dA9 |\n\
+| uint | amount | 115792089237316195423570985008687907853269984665640564039457584007913129639935 |\n\
+) { 0.0 GWEI }
+"ERC20_01" -> "Context_02" ++: _msgSender()
+"Context_02" -> "ERC20_01" --: Return (\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address |  | 0xace937991395B2051613368206066EB2E752a333 |\n\
+)
+"ERC20_01" -> "ERC20_01" ++: _approve(\n\
+<#FEFECE,#FEFECE>|= type |= name |= value |\n\
+| address | owner | 0xFFfFfFffFFfffFFfFFfFFFFFffFFFffffFfFFFfF |\n\
+| address | spender | 0x0000000000000000000000000000000000000000 |\n\
+| uint | amount | 954 |\n\
+) { 0.0 GWEI }
+"ERC20_01" -> "ERC20_01" --: 
+"GoodGhosting_01" -> "EOA" --: 
+
+legend
+Participant details
+<#FEFECE,#D0D000>|= Alias |= Contract name |= Address |
+<#FEFECE>| EOA | Externally Owned Account | 0x627306090abaB3A6e1400e9345bC60c78a8BEf57 |
+<#FEFECE>| GoodGhosting_01 | GoodGhosting | 0xace937991395B2051613368206066EB2E752a333 |
+<#FEFECE>| Context_01 | Context | 0xace937991395B2051613368206066EB2E752a333 |
+<#FEFECE>| LendingPoolAddressesProviderMock_01 | LendingPoolAddressesProviderMock | 0x8f1A69555d18587277937D06A6dF3C07459d1dA9 |
+<#FEFECE>| undefined_01 | undefined | 0x8f1A69555d18587277937D06A6dF3C07459d1dA9 |
+<#FEFECE>| MockERC20Mintable_01 | MockERC20Mintable | 0x394BfB86641Bf8cA8A757a318499A580Cc1f26C6 |
+<#FEFECE>| ERC20_01 | ERC20 | 0x394BfB86641Bf8cA8A757a318499A580Cc1f26C6 |
+<#FEFECE>| Context_02 | Context | 0x394BfB86641Bf8cA8A757a318499A580Cc1f26C6 |
+endlegend
+
+@enduml
